@@ -14,7 +14,7 @@ const AdminMap = () => {
 
   const fetchReports = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/reports');
+      const response = await axios.get('https://tap-report-backend.onrender.com/api/reports');
       setReports(response.data);
     } catch (error) {
       console.error('Error fetching reports:', error);
@@ -24,7 +24,7 @@ const AdminMap = () => {
   // Function to update a report's status to Resolved
   const markResolved = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/reports/${id}/status`, {
+      await axios.put(`https://tap-report-backend.onrender.com/api/reports/${id}/status`, {
         status: 'Resolved'
       });
       fetchReports(); // Refresh the map to show the updated status
@@ -59,7 +59,7 @@ const AdminMap = () => {
                   
                   {/* Display the uploaded image */}
                   <img 
-                    src={`http://localhost:5000/${report.imageUrl}`} 
+                    src={`https://tap-report-backend.onrender.com/${report.imageUrl}`} 
                     alt="Issue" 
                     style={{ width: '100%', borderRadius: '4px', marginBottom: '10px' }} 
                   />
